@@ -1,0 +1,19 @@
+<button mat-flat-button color="primary" [disabled]="!control.valid" (click)="add()">Add</button>
+<mat-form-field>
+  <input matInput [formControl]="control" placeholder="Description" />
+</mat-form-field>
+
+<app-filter [filters]="filters"
+            [active]="activeFilter$ | async"
+            (update)="changeFilter($event)"></app-filter>
+
+<mat-list>
+  <h3 mat-subheader>Todos</h3>
+  <mat-divider></mat-divider>
+  <app-todo
+    *ngFor="let todo of todos$ | async"
+    [todo]="todo"
+    (complete)="complete($event)"
+    (delete)="delete($event)"
+  ></app-todo>
+</mat-list>

@@ -1,0 +1,9 @@
+<mat-list-item [ngClass]="{
+  'deleted': todo.deleted
+}">
+  <input type="checkbox" [formControl]="control" />
+  <h4 mat-line>Complete: {{ todo.completed }}</h4>
+  <p mat-line>{{ todo.title }}</p>
+  <button mat-mini-fab color="warn" (click)="deleteControl.setValue(!todo.deleted)"><mat-icon>{{ todo.deleted ? 'restore_from_trash' : 'delete' }}</mat-icon></button>
+  <mat-divider></mat-divider>
+</mat-list-item>

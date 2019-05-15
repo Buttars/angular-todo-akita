@@ -1,0 +1,5 @@
+<mat-form-field>
+  <mat-select [formControl]="control">
+    <mat-option *ngFor="let filter of filters" [value]="filter.value">{{ filter.label }}</mat-option>
+  </mat-select>
+</mat-form-field>
